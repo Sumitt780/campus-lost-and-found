@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Dashboard - Campus Lost & Found
+    </title>
+
+
+    <!-- ==================== BOOTSTRAP ==================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- ==================== CUSTOM CSS ==================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================================== -->
+    <!--                      NAVBAR                        -->
+    <!-- ================================================== -->
+
+    <nav class="navbar navbar-dark bg-dark">
+
+        <div class="container">
+
+
+            <!-- BRAND -->
+
+            <a
+                class="navbar-brand fw-bold"
+                href="dashboard.html"
+            >
+                🎒 Campus Lost & Found
+            </a>
+
+
+            <!-- RIGHT SIDE -->
+
+            <div
+                class="d-flex align-items-center gap-2"
+            >
+
+
+                <!-- USER NAME -->
+
+                <span
+                    id="userName"
+                    class="text-white"
+                >
+                    Student
+                </span>
+
+
+                <!-- ================================================== -->
+                <!--                    NOTIFICATIONS                     -->
+                <!-- ================================================== -->
+
+                <div class="dropdown">
+
+
+                    <!-- Notification Button -->
+
+                    <button
+                        class="btn btn-outline-light position-relative"
+                        type="button"
+                        id="notificationBtn"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        title="Notifications"
+                    >
+
+                        🔔
+
+
+                        <!-- Unread Badge -->
+
+                        <span
+                            id="notificationBadge"
+                            class="position-absolute top-0 start-100 translate-middle
+                                   badge rounded-pill bg-danger d-none"
+                        >
+                            0
+                        </span>
+
+                    </button>
+
+
+                    <!-- ================================================== -->
+                    <!--              NOTIFICATION DROPDOWN                 -->
+                    <!-- ================================================== -->
+
+                    <div
+                        class="dropdown-menu dropdown-menu-end p-0 shadow"
+                        id="notificationDropdown"
+                        style="
+                            width: 360px;
+                            max-width: calc(100vw - 30px);
+                            max-height: 450px;
+                            overflow-y: auto;
+                        "
+                    >
+
+
+                        <!-- Notification Header -->
+
+                        <div
+                            class="d-flex justify-content-between
+                                   align-items-center p-3 border-bottom"
+                        >
+
+                            <strong>
+                                🔔 Notifications
+                            </strong>
+
+
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-link
+                                       text-decoration-none p-0"
+                                id="markAllReadBtn"
+                            >
+                                Mark all as read
+                            </button>
+
+                        </div>
+
+
+                        <!-- Notifications Container -->
+
+                        <div
+                            id="notificationsContainer"
+                        >
+
+                            <div
+                                class="text-center text-muted p-4"
+                            >
+
+                                <div
+                                    class="spinner-border
+                                           spinner-border-sm
+                                           text-primary"
+                                    role="status"
+                                ></div>
+
+                                <div class="mt-2">
+                                    Loading notifications...
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================================== -->
+                <!--                       LOGOUT                        -->
+                <!-- ================================================== -->
+
+                <button
+                    id="logoutBtn"
+                    class="btn btn-danger"
+                >
+                    Logout
+                </button>
+
+
+                <!-- ================================================== -->
+                <!--                     DARK MODE                       -->
+                <!-- ================================================== -->
+
+                <button
+                    id="themeToggle"
+                    class="theme-toggle"
+                    type="button"
+                    title="Switch to Dark Mode"
+                >
+                    🌙
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================================================== -->
+    <!--                  DASHBOARD HEADER                  -->
+    <!-- ================================================== -->
+
+    <section class="py-5 bg-light">
+
+        <div class="container">
+
+            <div
+                class="d-flex flex-column flex-md-row
+                       justify-content-between
+                       align-items-md-center gap-3"
+            >
+
+
+                <div>
+
+                    <h1 class="fw-bold mb-1">
+                        Campus Items
+                    </h1>
+
+                    <p class="text-muted mb-0">
+                        Find lost and found items around your campus.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="report.html"
+                    class="btn btn-primary"
+                >
+                    + Report Item
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================================== -->
+    <!--                    STATISTICS                      -->
+    <!-- ================================================== -->
+
+    <section class="py-4">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+
+                <!-- Lost -->
+
+                <div class="col-md-4">
+
+                    <div
+                        class="card border-0 shadow-sm h-100"
+                    >
+
+                        <div
+                            class="card-body d-flex align-items-center"
+                        >
+
+                            <div class="fs-1 me-3">
+                                🔴
+                            </div>
+
+
+                            <div>
+
+                                <p class="text-muted mb-1">
+                                    Lost Items
+                                </p>
+
+                                <h2
+                                    id="lostCount"
+                                    class="fw-bold mb-0"
+                                >
+                                    0
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Found -->
+
+                <div class="col-md-4">
+
+                    <div
+                        class="card border-0 shadow-sm h-100"
+                    >
+
+                        <div
+                            class="card-body d-flex align-items-center"
+                        >
+
+                            <div class="fs-1 me-3">
+                                🟢
+                            </div>
+
+
+                            <div>
+
+                                <p class="text-muted mb-1">
+                                    Found Items
+                                </p>
+
+                                <h2
+                                    id="foundCount"
+                                    class="fw-bold mb-0"
+                                >
+                                    0
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- My Reports -->
+
+                <div class="col-md-4">
+
+                    <div
+                        class="card border-0 shadow-sm h-100"
+                    >
+
+                        <div
+                            class="card-body d-flex align-items-center"
+                        >
+
+                            <div class="fs-1 me-3">
+                                📋
+                            </div>
+
+
+                            <div>
+
+                                <p class="text-muted mb-1">
+                                    My Reports
+                                </p>
+
+                                <h2
+                                    id="myReportsCount"
+                                    class="fw-bold mb-0"
+                                >
+                                    0
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================================== -->
+    <!--                 SEARCH & FILTERS                    -->
+    <!-- ================================================== -->
+
+    <section class="py-4">
+
+        <div class="container">
+
+            <div
+                class="card border-0 shadow-sm"
+            >
+
+                <div class="card-body">
+
+                    <div class="row g-3">
+
+
+                        <!-- Search -->
+
+                        <div class="col-md-4">
+
+                            <label
+                                for="searchInput"
+                                class="form-label fw-semibold"
+                            >
+                                Search
+                            </label>
+
+                            <input
+                                type="text"
+                                id="searchInput"
+                                class="form-control"
+                                placeholder="Search wallet, phone, ID..."
+                            >
+
+                        </div>
+
+
+                        <!-- Type -->
+
+                        <div class="col-md-2">
+
+                            <label
+                                for="typeFilter"
+                                class="form-label fw-semibold"
+                            >
+                                Type
+                            </label>
+
+                            <select
+                                id="typeFilter"
+                                class="form-select"
+                            >
+
+                                <option value="">
+                                    All
+                                </option>
+
+                                <option value="Lost">
+                                    Lost
+                                </option>
+
+                                <option value="Found">
+                                    Found
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Category -->
+
+                        <div class="col-md-3">
+
+                            <label
+                                for="categoryFilter"
+                                class="form-label fw-semibold"
+                            >
+                                Category
+                            </label>
+
+                            <select
+                                id="categoryFilter"
+                                class="form-select"
+                            >
+
+                                <option value="">
+                                    All Categories
+                                </option>
+
+                                <option value="Electronics">
+                                    Electronics
+                                </option>
+
+                                <option value="Documents">
+                                    Documents
+                                </option>
+
+                                <option value="Clothing">
+                                    Clothing
+                                </option>
+
+                                <option value="Accessories">
+                                    Accessories
+                                </option>
+
+                                <option value="Books">
+                                    Books
+                                </option>
+
+                                <option value="Keys">
+                                    Keys
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Location -->
+
+                        <div class="col-md-3">
+
+                            <label
+                                for="locationFilter"
+                                class="form-label fw-semibold"
+                            >
+                                Location
+                            </label>
+
+                            <input
+                                type="text"
+                                id="locationFilter"
+                                class="form-control"
+                                placeholder="e.g. Library"
+                            >
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================================== -->
+    <!--                       ITEMS                        -->
+    <!-- ================================================== -->
+
+    <section class="pb-5">
+
+        <div class="container">
+
+
+            <!-- Items Container -->
+
+            <div
+                id="itemsContainer"
+                class="row g-4"
+            ></div>
+
+
+            <!-- Loading -->
+
+            <div
+                id="loading"
+                class="text-center py-5"
+            >
+
+                <div
+                    class="spinner-border text-primary"
+                    role="status"
+                ></div>
+
+                <p class="text-muted mt-2">
+                    Loading items...
+                </p>
+
+            </div>
+
+
+            <!-- Empty State -->
+
+            <div
+                id="emptyState"
+                class="text-center py-5 d-none"
+            >
+
+                <div style="font-size: 60px;">
+                    🔍
+                </div>
+
+                <h4>
+                    No items found
+                </h4>
+
+                <p class="text-muted">
+                    Try changing your search or filters.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================================== -->
+    <!--                   CLAIM REQUESTS                   -->
+    <!-- ================================================== -->
+
+    <section class="py-5 bg-light">
+
+        <div class="container">
+
+
+            <div class="mb-4">
+
+                <h2 class="fw-bold">
+                    🤝 Claim Requests
+                </h2>
+
+                <p class="text-muted">
+                    Manage requests for items you posted.
+                </p>
+
+            </div>
+
+
+            <!-- Claims Container -->
+
+            <div
+                id="claimsContainer"
+                class="row g-4"
+            ></div>
+
+
+            <!-- Loading -->
+
+            <div
+                id="claimsLoading"
+                class="text-center py-4 d-none"
+            >
+
+                <div
+                    class="spinner-border text-primary"
+                    role="status"
+                ></div>
+
+                <p class="text-muted mt-2">
+                    Loading claim requests...
+                </p>
+
+            </div>
+
+
+            <!-- No Claims -->
+
+            <div
+                id="noClaims"
+                class="text-center py-4 d-none"
+            >
+
+                <div style="font-size: 50px;">
+                    📭
+                </div>
+
+                <h5>
+                    No Claim Requests
+                </h5>
+
+                <p class="text-muted">
+                    You don't have any claim requests yet.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================================== -->
+    <!--                     MY REPORTS                     -->
+    <!-- ================================================== -->
+
+    <section class="py-5">
+
+        <div class="container">
+
+
+            <div class="mb-4">
+
+                <h2 class="fw-bold">
+                    📋 My Reports
+                </h2>
+
+                <p class="text-muted">
+                    Manage the lost and found items you have reported.
+                </p>
+
+            </div>
+
+
+            <!-- My Items -->
+
+            <div
+                id="myItemsContainer"
+                class="row g-4"
+            ></div>
+
+
+            <!-- Loading -->
+
+            <div
+                id="myItemsLoading"
+                class="text-center py-4 d-none"
+            >
+
+                <div
+                    class="spinner-border text-primary"
+                    role="status"
+                ></div>
+
+                <p class="text-muted mt-2">
+                    Loading your reports...
+                </p>
+
+            </div>
+
+
+            <!-- No Reports -->
+
+            <div
+                id="noMyItems"
+                class="text-center py-4 d-none"
+            >
+
+                <div style="font-size: 50px;">
+                    📭
+                </div>
+
+                <h5>
+                    No Reports Yet
+                </h5>
+
+                <p class="text-muted">
+                    You haven't reported any items yet.
+                </p>
+
+                <a
+                    href="report.html"
+                    class="btn btn-primary"
+                >
+                    + Report an Item
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================================== -->
+    <!--                    JAVASCRIPT                      -->
+    <!-- ================================================== -->
+
+
+    <!-- Bootstrap JS -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+
+    <!-- Authentication -->
+
+    <script src="js/auth.js"></script>
+
+
+    <!-- Dashboard -->
+
+    <script src="js/dashboard.js"></script>
+
+
+    <!-- Dark Mode -->
+
+    <script src="js/theme.js"></script>
+
+
+</body>
+
+</html>

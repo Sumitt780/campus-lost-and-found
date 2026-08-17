@@ -1,0 +1,633 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #212529;
+}
+
+
+/* Hero Section */
+
+.hero-section {
+    padding: 70px 0;
+    background: linear-gradient(
+        135deg,
+        #f8f9fa,
+        #eef4ff
+    );
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+
+/* Hero Card */
+
+.hero-card {
+    background: white;
+    padding: 60px 30px;
+    border-radius: 24px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.hero-icon {
+    font-size: 90px;
+    margin-bottom: 20px;
+}
+
+
+/* Feature Cards */
+
+.feature-card {
+    background: white;
+
+    padding: 30px;
+
+    height: 100%;
+
+    border-radius: 18px;
+
+    border: 1px solid #e9ecef;
+
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+
+/* How It Works */
+
+.step-number {
+    width: 55px;
+    height: 55px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #0d6efd;
+
+    color: white;
+
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+
+/* Buttons */
+
+.btn {
+    border-radius: 10px;
+}
+
+
+/* Footer */
+
+footer {
+    margin-top: 0;
+}
+
+/* Dashboard Item Cards */
+
+.item-card {
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+.item-image {
+    height: 220px;
+    object-fit: cover;
+}
+
+.no-image {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f3f5;
+    font-size: 60px;
+}
+
+/* Claim Request Cards */
+
+#claimsContainer .card {
+    transition: 0.3s;
+}
+
+#claimsContainer .card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ==========================================================
+   DASHBOARD POLISH
+   ========================================================== */
+
+
+/* Item Cards */
+
+.item-card {
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+
+.item-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.12) !important;
+}
+
+
+/* Item Images */
+
+.item-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+
+.no-image {
+    height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 60px;
+
+    background: #f8f9fa;
+}
+
+
+/* Statistics Cards */
+
+.card {
+    border-radius: 14px;
+}
+
+
+section .card {
+    transition: all 0.2s ease;
+}
+
+
+section .card:hover {
+    transform: translateY(-3px);
+}
+
+
+/* Buttons */
+
+.btn {
+    border-radius: 8px;
+}
+
+
+/* Search Area */
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+}
+
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+
+/* Claim Cards */
+
+#claimsContainer .card {
+    border-radius: 14px;
+    transition: all 0.25s ease;
+}
+
+
+#claimsContainer .card:hover {
+    transform: translateY(-4px);
+}
+
+
+/* My Reports */
+
+#myItemsContainer .card {
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+
+#myItemsContainer .card:hover {
+    transform: translateY(-4px);
+}
+
+
+/* Navbar */
+
+.navbar {
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Mobile */
+
+@media (max-width: 576px) {
+
+    .item-image,
+    .no-image {
+        height: 200px;
+    }
+
+
+    .navbar-brand {
+        font-size: 0.95rem;
+    }
+
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+
+    .d-flex.gap-2 {
+        flex-wrap: wrap;
+    }
+
+}
+
+/* ==========================================================
+   DARK MODE
+   ========================================================== */
+
+body {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* ==========================================================
+   DARK THEME VARIABLES
+   ========================================================== */
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+
+/* ==========================================================
+   TEXT
+   ========================================================== */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode label,
+body.dark-mode span {
+    color: inherit;
+}
+
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+body.dark-mode .hero-section {
+    background:
+        linear-gradient(
+            135deg,
+            #121212,
+            #1b2430
+        );
+}
+
+
+body.dark-mode .hero-card {
+    background: #1e1e1e;
+    color: #f1f1f1;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.45);
+}
+
+
+/* ==========================================================
+   FEATURE CARDS
+   ========================================================== */
+
+body.dark-mode .feature-card {
+    background: #1e1e1e;
+    color: #f1f1f1;
+
+    border-color: #333;
+}
+
+
+body.dark-mode .feature-card:hover {
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ==========================================================
+   GENERAL CARDS
+   ========================================================== */
+
+body.dark-mode .card {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+
+    border-color: #333;
+}
+
+
+body.dark-mode .card-body,
+body.dark-mode .card-footer {
+    background-color: #1e1e1e !important;
+    color: #f1f1f1;
+}
+
+
+/* ==========================================================
+   ITEM CARDS
+   ========================================================== */
+
+body.dark-mode .item-card {
+    background-color: #1e1e1e;
+}
+
+
+body.dark-mode .item-card:hover {
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+
+body.dark-mode .no-image {
+    background: #292929;
+    color: #f1f1f1;
+}
+
+
+/* ==========================================================
+   CLAIM CARDS
+   ========================================================== */
+
+body.dark-mode #claimsContainer .card {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+}
+
+
+body.dark-mode #claimsContainer .bg-light {
+    background-color: #292929 !important;
+    color: #ddd !important;
+}
+
+
+/* ==========================================================
+   MY REPORTS
+   ========================================================== */
+
+body.dark-mode #myItemsContainer .card {
+    background-color: #1e1e1e;
+}
+
+
+/* ==========================================================
+   SEARCH / FILTER AREA
+   ========================================================== */
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #242424;
+    color: #f1f1f1;
+
+    border-color: #444;
+}
+
+
+body.dark-mode .form-control::placeholder {
+    color: #aaa;
+}
+
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    background-color: #242424;
+    color: #fff;
+
+    border-color: #0d6efd;
+
+    box-shadow:
+        0 0 0 0.2rem rgba(
+            13,
+            110,
+            253,
+            0.25
+        );
+}
+
+
+/* Dropdown options */
+
+body.dark-mode .form-select option {
+    background-color: #242424;
+    color: #fff;
+}
+
+
+/* ==========================================================
+   SEARCH SECTION / LIGHT SECTIONS
+   ========================================================== */
+
+body.dark-mode section.bg-light,
+body.dark-mode .bg-light {
+    background-color: #181818 !important;
+    color: #f1f1f1 !important;
+}
+
+
+/* ==========================================================
+   TEXT MUTED
+   ========================================================== */
+
+body.dark-mode .text-muted {
+    color: #b5b5b5 !important;
+}
+
+
+/* ==========================================================
+   BORDERS
+   ========================================================== */
+
+body.dark-mode hr {
+    border-color: #444;
+}
+
+
+body.dark-mode .border {
+    border-color: #444 !important;
+}
+
+
+/* ==========================================================
+   NAVBAR
+   ========================================================== */
+
+body.dark-mode .navbar {
+    background-color: #181818 !important;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+body.dark-mode footer {
+    background-color: #181818 !important;
+    color: #ddd;
+}
+
+
+/* ==========================================================
+   TABLES
+   ========================================================== */
+
+body.dark-mode table {
+    color: #f1f1f1;
+}
+
+
+body.dark-mode .table {
+    --bs-table-bg: #1e1e1e;
+    --bs-table-color: #f1f1f1;
+}
+
+
+body.dark-mode .table > :not(caption) > * > * {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+    border-color: #444;
+}
+
+
+/* ==========================================================
+   MODALS
+   ========================================================== */
+
+body.dark-mode .modal-content {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+
+    border-color: #444;
+}
+
+
+/* ==========================================================
+   ALERTS
+   ========================================================== */
+
+body.dark-mode .alert {
+    border-color: #444;
+}
+
+
+/* ==========================================================
+   DARK MODE BUTTON
+   ========================================================== */
+
+.theme-toggle {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    border: 1px solid #dee2e6;
+
+    background: #ffffff;
+
+    color: #212529;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+
+.theme-toggle:hover {
+    transform: scale(1.08);
+}
+
+
+/* Dark button */
+
+body.dark-mode .theme-toggle {
+    background: #292929;
+    color: #ffffff;
+
+    border-color: #555;
+}
+
+
+/* ==========================================================
+   DARK MODE BUTTON MOBILE
+   ========================================================== */
+
+@media (max-width: 576px) {
+
+    .theme-toggle {
+        width: 38px;
+        height: 38px;
+
+        font-size: 18px;
+    }
+
+}
